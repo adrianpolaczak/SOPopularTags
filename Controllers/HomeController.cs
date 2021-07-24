@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SOPopularTags.Interfaces;
 using SOPopularTags.Models;
 
 namespace SOPopularTags.Controllers
@@ -12,15 +15,20 @@ namespace SOPopularTags.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IHomeService _homeService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(
+            ILogger<HomeController> logger,
+            IHomeService homeService)
         {
             _logger = logger;
+            _homeService = homeService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int pageNumber)
         {
-            return View();
+            var model = await _homeService.GetPopularTags(pageNumber);
+            return View(model);
         }
 
         public IActionResult Privacy()

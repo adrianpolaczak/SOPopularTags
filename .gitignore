@@ -389,5 +389,6 @@ FodyWeavers.xsd
 
 # Custom
 *.vscode
+*.sln
 .vscode/launch.json
 .vscode/tasks.json
