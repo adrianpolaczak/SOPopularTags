@@ -25,9 +25,10 @@ namespace SOPopularTags.Web.Controllers
             _homeService = homeService;
         }
 
-        public async Task<IActionResult> Index(int pageNumber)
+        public async Task<IActionResult> Index()
         {
-            var model = await _homeService.GetPopularTags(pageNumber);
+            //await _homeService.ConsumePopularTags();
+            var model = await _homeService.GetPopularTags();
             return View(model);
         }
 

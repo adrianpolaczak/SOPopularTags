@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using SOPopularTags.Application.ViewModels;
 
@@ -6,6 +5,7 @@ namespace SOPopularTags.Application.Interfaces
 {
     public interface IHomeService
     {
-        Task<HomeVM> GetPopularTags(int pageNumber);
+        Task ConsumePopularTags();
+        Task<HomeVM> GetPopularTags();
     }
 }

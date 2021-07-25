@@ -1,6 +1,6 @@
 ﻿@model SOPopularTags.Application.ViewModels.HomeVM
 @{
-    ViewData["Title"] = "Most popular SO tags";
+    ViewData["Title"] = "Most popular Stack Overflow tags";
 }
 <div class="row">
     <div class="col text-center">
@@ -26,6 +26,9 @@
                         </td>
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem => item.Count)
+                        </td>
+                        <td class="align-middle">
+                            @item.PopularityPercent.ToString("n2") %
                         </td>
                     </tr>
                 }

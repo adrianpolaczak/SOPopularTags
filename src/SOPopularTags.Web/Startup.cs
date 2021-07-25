@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SOPopularTags.Application;
+using SOPopularTags.Infrastructure;
 
 namespace SOPopularTags.Web
 {
@@ -24,8 +28,16 @@ namespace SOPopularTags.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("SQLEXPRESS")));
             services.AddControllersWithViews();
             services.AddApplication();
+            services.AddInfrastructure();
+            services.AddHttpClient("SO").ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

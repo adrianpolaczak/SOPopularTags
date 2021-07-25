@@ -6,6 +6,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SOPopularTags.Application\SOPopularTags.Application.csproj" />
+    <ProjectReference Include="..\SOPopularTags.Infrastructure\SOPopularTags.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
