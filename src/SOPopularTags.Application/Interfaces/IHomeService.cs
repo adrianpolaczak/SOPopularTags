@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using SOPopularTags.Models;
+using SOPopularTags.Application.ViewModels;
 
-namespace SOPopularTags.Interfaces
+namespace SOPopularTags.Application.Interfaces
 {
     public interface IHomeService
     {

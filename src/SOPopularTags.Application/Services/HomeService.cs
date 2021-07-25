@@ -1,12 +1,11 @@
 using System.Net;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using SOPopularTags.Models;
 using Newtonsoft.Json;
-using SOPopularTags.Interfaces;
+using SOPopularTags.Application.Interfaces;
+using SOPopularTags.Application.ViewModels;
 
-namespace SOPopularTags.Services
+namespace SOPopularTags.Application.Services
 {
     public class HomeService : IHomeService
     {

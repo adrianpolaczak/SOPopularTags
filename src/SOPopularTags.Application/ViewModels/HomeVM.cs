@@ -1,7 +1,6 @@
-using System;
 using System.Collections.Generic;
 
-namespace SOPopularTags.Models
+namespace SOPopularTags.Application.ViewModels
 {
     public class HomeVM
     {

@@ -8,10 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SOPopularTags.Interfaces;
-using SOPopularTags.Services;
+using SOPopularTags.Application;
 
-namespace SOPopularTags
+namespace SOPopularTags.Web
 {
     public class Startup
     {
@@ -26,7 +25,7 @@ namespace SOPopularTags
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IHomeService, HomeService>();
+            services.AddApplication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

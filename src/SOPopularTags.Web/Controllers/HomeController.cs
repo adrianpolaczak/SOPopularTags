@@ -7,10 +7,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SOPopularTags.Interfaces;
-using SOPopularTags.Models;
+using SOPopularTags.Application.Interfaces;
+using SOPopularTags.Web.Models;
 
-namespace SOPopularTags.Controllers
+namespace SOPopularTags.Web.Controllers
 {
     public class HomeController : Controller
     {

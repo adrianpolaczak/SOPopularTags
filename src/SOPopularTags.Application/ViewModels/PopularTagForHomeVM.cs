@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Text.Json.Serialization;
-
-namespace SOPopularTags.Models
+namespace SOPopularTags.Application.ViewModels
 {
     public class PopularTagForHomeVM
     {

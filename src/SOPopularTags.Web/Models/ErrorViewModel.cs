@@ -1,6 +1,6 @@
 using System;
 
-namespace SOPopularTags.Models
+namespace SOPopularTags.Web.Models
 {
     public class ErrorViewModel
     {
