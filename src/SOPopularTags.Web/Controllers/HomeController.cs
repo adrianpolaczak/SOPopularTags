@@ -27,6 +27,7 @@ namespace SOPopularTags.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+            // Get most popular tags from database
             var model = await _homeService.GetPopularTags();
             return View(model);
         }

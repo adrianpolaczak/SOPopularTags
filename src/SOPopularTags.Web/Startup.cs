@@ -28,12 +28,20 @@ namespace SOPopularTags.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add sql server database provider
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("SQLEXPRESS")));
+                options.UseSqlServer(Configuration.GetConnectionString("SQLEXPRESS")));
+
+            // Add MVC
             services.AddControllersWithViews();
+
+            // Add services from Application project
             services.AddApplication();
+
+            // Add services from Infrastructure project
             services.AddInfrastructure();
+
+            // Add http client with automatic decompression since SO api compresses responses
             services.AddHttpClient("SO").ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
             {
                 AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip
