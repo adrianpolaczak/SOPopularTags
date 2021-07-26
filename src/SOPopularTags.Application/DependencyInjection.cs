@@ -33,8 +33,10 @@ namespace SOPopularTags.Application
                 q.AddTrigger(options => options
                     .ForJob(jobKey)
                     .WithIdentity($"{jobKey.Name}trigger")
+                    // Execute job at the start of the program
                     .StartNow()
                     .WithSimpleSchedule(s => s
+                        // Execute job every 10 minutes
                         .WithInterval(TimeSpan.FromMinutes(10))
                         .RepeatForever())
                     );

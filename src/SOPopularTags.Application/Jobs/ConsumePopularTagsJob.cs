@@ -47,7 +47,7 @@ namespace SOPopularTags.Application.Jobs
             // Check if record with id 1 already exists in database
             var req = await _SOTagRequestRepository.GetSOTagRequest(1);
             // If not, add new record
-            if (req.Id != 1)
+            if (req == null || req.Id != 1)
             {
                 await _SOTagRequestRepository.AddSOTagRequest(sOTagRequest);
             }
