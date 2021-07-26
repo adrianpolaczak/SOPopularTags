@@ -35,8 +35,9 @@ namespace SOPopularTags.Application.Services
             // Make 10 requests since SO api only permits to fetch 100 records in one request
             for (int i = 1; i <= 10; i++)
             {
-                var response = await httpClient.GetStringAsync($"https://api.stackexchange.com/2.3/tags?page={i}&pagesize=100&order=desc&sort=popular&site=stackoverflow");
-                var temp = JsonConvert.DeserializeObject<SOTagRequest>(response);
+                var response = await httpClient.GetAsync($"https://api.stackexchange.com/2.3/tags?page={i}&pagesize=100&order=desc&sort=popular&site=stackoverflow");
+                var body = await response.Content.ReadAsStringAsync();
+                var temp = JsonConvert.DeserializeObject<SOTagRequest>(body);
                 sOTagRequest.Items.AddRange(temp.Items);
             }
             // Calculate popularity percentage of each element in given sample

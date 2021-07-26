@@ -28,7 +28,7 @@ namespace SOPopularTags.Application
                 // Add a new job we created with our key
                 q.AddJob<ConsumePopularTagsJob>(options =>
                     options.WithIdentity(jobKey));
-                
+
                 // Add a trigger to our job so it knows when to execute
                 q.AddTrigger(options => options
                     .ForJob(jobKey)
@@ -46,6 +46,7 @@ namespace SOPopularTags.Application
             // Add some services
             services.AddScoped<IHomeService, HomeService>();
             services.AddScoped<IPopularityCalculatorService, PopularityCalculatorService>();
+            services.AddScoped<IConsumePopularTagsService, ConsumePopularTagsService>();
             return services;
         }
     }
