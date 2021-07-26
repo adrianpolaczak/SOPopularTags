@@ -5,6 +5,6 @@ namespace SOPopularTags.Application.Interfaces
 {
     public interface IHomeService
     {
-        Task<HomeVM> GetPopularTags();
+        Task<HomeVM> GetPopularTagsAsync();
     }
 }

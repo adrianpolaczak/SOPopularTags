@@ -22,7 +22,7 @@ namespace SOPopularTags.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<HomeVM> GetPopularTags()
+        public async Task<HomeVM> GetPopularTagsAsync()
         {
             // Get a record from database and map it to dto
             var homeVM = await _SOTagRequestRepository.GetSOTagRequests()

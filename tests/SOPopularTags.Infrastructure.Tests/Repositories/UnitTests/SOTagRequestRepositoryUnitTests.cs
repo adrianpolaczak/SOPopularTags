@@ -107,6 +107,7 @@ namespace SOPopularTags.Infrastructure.Tests.Repositories.UnitTests
             };
             var sOTagRequests = new List<SOTagRequest> { sOTagRequest };
             var sOTagRequestQ = sOTagRequests.AsQueryable();
+            
             using (var context = new AppDbContext(_options))
             {
                 await context.Database.EnsureCreatedAsync();
