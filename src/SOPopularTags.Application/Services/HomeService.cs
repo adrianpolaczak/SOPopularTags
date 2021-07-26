@@ -24,10 +24,12 @@ namespace SOPopularTags.Application.Services
 
         public async Task<HomeVM> GetPopularTags()
         {
+            // Get a record from database and map it to dto
             var homeVM = await _SOTagRequestRepository.GetSOTagRequests()
                 .Where(x => x.Id == 1)
                     .ProjectTo<HomeVM>(_mapper.ConfigurationProvider)
             .FirstOrDefaultAsync();
+            // Order items here since they are not ordered when retrieved from api and saved to database
             homeVM.Items = homeVM.Items.OrderByDescending(x => x.Count).ToList();
             return homeVM;
         }

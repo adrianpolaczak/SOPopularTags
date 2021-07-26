@@ -27,7 +27,6 @@ namespace SOPopularTags.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //await _homeService.ConsumePopularTags();
             var model = await _homeService.GetPopularTags();
             return View(model);
         }

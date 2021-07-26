@@ -1,4 +1,3 @@
-using System;
 using Microsoft.EntityFrameworkCore;
 using SOPopularTags.Domain.Models;
 

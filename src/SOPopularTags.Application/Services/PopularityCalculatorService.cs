@@ -6,6 +6,7 @@ namespace SOPopularTags.Application.Services
 {
     public class PopularityCalculatorService : IPopularityCalculatorService
     {
+        // Simple method to calculate popularity percentage of items in a given SOTagRequestItem list
         public List<SOTagRequestItem> CalculateTagsPopulatiryPercentage(List<SOTagRequestItem> tagRequestItems)
         {
             int totalCount = 0;

@@ -11,10 +11,7 @@ namespace SOPopularTags.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    HasMore = table.Column<bool>(type: "bit", nullable: false),
-                    QuotaMax = table.Column<int>(type: "int", nullable: false),
-                    QuotaRemaining = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
                 },
                 constraints: table =>
                 {
@@ -32,7 +29,8 @@ namespace SOPopularTags.Infrastructure.Migrations
                     IsModeratorOnly = table.Column<bool>(type: "bit", nullable: false),
                     IsRequired = table.Column<bool>(type: "bit", nullable: false),
                     Count = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PopularityPercent = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {

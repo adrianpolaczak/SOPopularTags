@@ -9,8 +9,8 @@ using SOPopularTags.Infrastructure;
 namespace SOPopularTags.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210725195719_UpdateTables2")]
-    partial class UpdateTables2
+    [Migration("20210726165554_CreateTables")]
+    partial class CreateTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,9 @@ namespace SOPopularTags.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("PopularityPercent")
+                        .HasColumnType("float");
 
                     b.Property<int>("SOTagRequestId")
                         .HasColumnType("int");
